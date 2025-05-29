@@ -1,0 +1,95 @@
+version: '3.5'
+services:
+  # anod_demo:
+  #   image: anod_demo:latest
+  #   labels:
+  #     logging: "promtail"
+  #     logging_jobname: "containerlogs"
+  #   ports:
+  #     - 8080:80
+  #   volumes:
+  #     - ./Dockerfile:/Dockerfile
+  #   networks:
+  #     - loki
+  #   depends_on:
+  #     - loki
+      
+
+  otel-collector:
+    image: otel/opentelemetry-collector:latest
+    volumes:
+      - ./grafana/otel_config.yaml:/etc/otel/config.yaml
+    command:
+      - '--config=/etc/otel/config.yaml'
+    ports:
+      - "4317:4317" #grpc
+      - "4318:4318" #http
+    depends_on:
+      - loki
+    networks:
+      - loki_network
+  loki:
+    image: grafana/loki:latest
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./grafana/loki_config.yaml:/etc/loki/local-config.yaml
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - loki_network
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+      - GF_FEATURE_TOGGLES_ENABLE=accessControlOnCall
+      - GF_INSTALL_PLUGINS=https://storage.googleapis.com/integration-artifacts/grafana-lokiexplore-app/grafana-lokiexplore-app-latest.zip;grafana-lokiexplore-app
+    ports:
+      - "3000:3000/tcp"
+    volumes:
+      - ./grafana:/etc/grafana/provisioning
+    networks:
+      - loki_network
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./grafana/prometheus/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yaml # Mount the prometheus.yml file
+    ports:
+      - "9090:9090" # Expose port 9090 for Prometheus
+    networks:
+      - loki_network
+
+  alertmanager:
+    image: prom/alertmanager
+    volumes:
+      - ./grafana/prometheus/alertmanager/alertmanager.yaml:/etc/alertmanager/alertmanager.yaml # Mount the alertmanager.yml file
+    ports:
+      - "9093:9093" # Expose port 9093 for Alertmanager
+    networks:
+      - loki_network
+  promtail: 
+    image:  grafana/promtail:latest
+    container_name: promtail
+    volumes:
+      - ./grafana//promtail.yaml:/etc/promtail/docker-config.yaml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./src/artifacts/logs/running_logs.log:/var/log/running_logs.log
+    command: -config.file=/etc/promtail/docker-config.yaml
+    depends_on:
+      - loki
+    networks:
+      - loki_network
+    
+networks:
+  loki_network:
+    driver: bridge
+    external: true
+      
+
+    
+
+
+    
