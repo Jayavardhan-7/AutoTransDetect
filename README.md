@@ -1,191 +1,153 @@
-
-
 <p align="center">
-    <a href="https://github.com/tph-kds/anomaly_detection_in_transactions
-/releases">
-        <img alt="GitHub release" src="https://img.shields.io/github/release/tph-kds/anomaly_detection_in_transactions.svg">
-    </a>
-    <a href="https://github.com/tph-kds/anomaly_detection_in_transactions
-/actions/workflows/ci_cd.yaml">
-        <img alt="Github Testing" src="https://github.com/tph-kds/anomaly_detection_in_transactions/actions/workflows/ci_cd.yaml/badge.svg">
-    </a>
-    <a href="https://www.python.org/">
-            <img alt="Build" src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple">
-    </a>
-    <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/blob/main/LICENSE">
-        <img alt="License" src="https://img.shields.io/github/license/tph-kds/anomaly_detection_in_transactions.svg?color=green">
-    </a>
-    <a href="https://colab.research.google.com/github/tph-kds/anomaly_detection_in_transactions/blob/main/docs/quickstart.ipynb">
-        <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
-    </a>
-    <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/">
-        <img alt="Downloads" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
-    </a>
+  <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/releases">
+    <img alt="GitHub release" src="https://img.shields.io/github/release/tph-kds/anomaly_detection_in_transactions.svg">
+  </a>
+  <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/actions/workflows/ci_cd.yaml">
+    <img alt="Github Testing" src="https://github.com/tph-kds/anomaly_detection_in_transactions/actions/workflows/ci_cd.yaml/badge.svg">
+  </a>
+  <a href="https://www.python.org/">
+    <img alt="Build" src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?color=purple">
+  </a>
+  <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/blob/main/LICENSE">
+    <img alt="License" src="https://img.shields.io/github/license/tph-kds/anomaly_detection_in_transactions.svg?color=green">
+  </a>
+  <a href="https://colab.research.google.com/github/tph-kds/anomaly_detection_in_transactions/blob/main/docs/quickstart.ipynb">
+    <img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg">
+  </a>
+  <a href="https://github.com/tph-kds/anomaly_detection_in_transactions/">
+    <img alt="Downloads" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
+  </a>
 </p>
-
-<h4 align="center">
-    <p>
-        <a href="#book-contents">Content</a> |
-        <a href="#shield-installation">Installation</a> |
-        <a href="#fire-quickstart">Quickstart</a> |
-        <a href="#v-acknowledgements">Acknowledgements</a> |
-        <a href="#references">References</a> |
-        <a href="https://tph-kds.github.io/portfolio/">Portfolio</a>
-    <p>
-</h4>
 
 <h1 align="center">Anomaly Detection in Transactions (Fraud Detection)</h1>
-<p align="center">
-  <img align="center" src="readme/images/logo.png" width="1200">
-</p>
-
-# 
 
 <p align="center">
-  <i>End to End Implementing MLOps (Machine Learning Operations) lifecycle from scratch practices </i>
+  <img src="readme/images/logo.png" width="800">
 </p>
 
-## :book: Contents
-* [Model Overview](#-model-overview)
-    * [Introduction](#introduction)
-    * [Architecture](#architecture)
-* [Getting Started](#-getting-started)
-    * [Installation](#shield-installation)
-    * [QuickStart](#fire-quickstart)
-    * [Install Required Packages](#install-required-packages)
-    * [Prepare the Training Data](#prepare-the-training-data)
-    * [Models](#models)
-* [Inference and Demo](#infer-and-demo)
-    * [Results](#results)
-    * [Deployment](#deployment)
-* [Acknowledgements](#v-acknowledgements)
-* [Future Plans](#star-future-plans)
-* [References](#references)
+<p align="center">
+  End-to-End MLOps implementation for transaction fraud detection
+</p>
 
+---
+
+## 🔗 Quick Links
+- [📘 Content](#-contents)
+- [🛠️ Installation](#shield-installation)
+- [⚡ Quickstart](#fire-quickstart)
+- [🙏 Acknowledgements](#v-acknowledgements)
+- [📚 References](#references)
+- [🌐 Portfolio](https://tph-kds.github.io/portfolio/)
+
+---
+
+## 📘 Contents
+- [Model Overview](#-model-overview)
+- [Getting Started](#-getting-started)
+- [Inference and Demo](#inference-and-demo)
+- [Acknowledgements](#v-acknowledgements)
+- [Future Plans](#star-future-plans)
+- [References](#references)
+
+---
 
 ## 🧊 Model Overview
 
 ### Introduction
+Anomaly detection system for identifying fraudulent transactions.
+
+### Architecture
+<p align="center">
+  <img src="readme/images/architecture.png" width="800">
+</p>
 
 ---
 
-<!-- <p align="center">
-  <img align="center" src="" width="800">
-  
-</p> -->
-
-### Architecture
-
-
-<p align="center">
-  <img align="center" src="readme/images/architecture.png" width="800">
-  
-</p>
-
-
 ## 🪸 Getting Started
+
 ### :shield: Installation
 
-From release:
-
+From PyPI:
 ```bash
 pip install ano-detection
 ```
 
-Alternatively, from source:
-
+From source:
 ```bash
 git clone https://github.com/tph-kds/anomaly_detection_in_transactions.git
 ```
 
-Or using docker container with our image, you can run:
-
-``` bash
-    docker run -p 8000:8000 ano-detection/ano-detection
+Using Docker:
+```bash
+docker run -p 8000:8000 ano-detection/ano-detection
 ```
-### :fire: Quickstart
 
-This is a small example program you can run to see `ano-dection` in action!
+---
+
+### :fire: Quickstart
+Try this small demo:
 
 ```python
-
-# Good Luck! And Thank you for your interesting. 
-
+# Quickstart example code will go here
 ```
 
+> 📌 Check `tests/integration` for step-by-step workflows.
 
-> [!NOTE]
-> You could also check step by step of this project's workflow such as Data Ingestion, Data Processing, and more... in the `tests/integration` folder .
+---
 
 ### Install Required Packages
-(It is recommended that the dependencies be installed under the Conda environment.)
-```
+
+```bash
 pip install -r requirements.txt
 ```
-or run [`init_setup.sh`]() file in the project's folder:
-```
-<!-- Run this command to give the script execution rights: -->
 
+Or run the setup script:
+
+```bash
 chmod +x init_setup.sh
-
-<!-- Right now, you can execute the script by typing: -->
-
 bash init_setup.sh
 ```
 
-To be detailed requirements on [Pypi Website](https://pypi.org/project/trim-rag/)
+GPU supported environments: T4, A100, or CPU also works.
 
-**The required supportive environment uses hardware accelerator GPUs such as T4 of Colab, GPU A100, etc. as well as local CPU for machine-learning models**
+---
 
 ### Prepare the Training Data
 
+Details on how to organize and preprocess training data.
+
 ---
 
-### Models
+## Inference and Demo
+
+> Coming soon...
+
 ---
-
-
-<!-- ## Inference And Demo
-
-
-### Results
-...
-
-
-### Deployment
-
-... -->
-
-<p align="center">
-  <img align="center" src="" width="800">
-  
-</p>
 
 ## :v: Acknowledgements
 
----
+- Logo by [@tranphihung](https://github.com/tph-kds)
 
-- Logo is generated by [@tranphihung](https://github.com/tph-kds)
+---
 
 ## :star: Future Plans
 
------
+We’re continuously improving the model and adding new features. Stay tuned!
 
-Stay tuned for future releases as we are continuously working on improving the model, expanding the dataset, and adding new features.
+📬 Questions? Email: [tranphihung8383@gmail.com](mailto:tranphihung8383@gmail.com)
 
-Thank you for your interest in my project. We hope you find it useful. If you have any questions, please feel free and don't hesitate to contact me at [tranphihung8383@gmail.com](tranphihung8383@gmail.com)
+---
 
-## References
+## 📚 References
 
------
+(You can add references here)
 
-## Contribute to it🌱
-To make contribution in this project:
+---
 
-- Clone the repository.
-- Fork the repository.
-- Make changes.
-- Create a Pull request.
-- Also, publish an issue!
+## 🌱 How to Contribute
 
-``Have a nice day, Good Luck! And Thank you for your interesting. ``
+- Clone and fork the repo
+- Make your changes
+- Submit a pull request or open an issue
+
+**Have a great day, and thank you for your interest!**
